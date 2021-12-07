@@ -1,0 +1,50 @@
+{
+  "name": "aoc2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "01": "tsc && node dist/01.js",
+    "02": "tsc && node dist/02.js",
+    "03": "tsc && node dist/03.js",
+    "04": "tsc && node dist/04.js",
+    "05": "tsc && node dist/05.js",
+    "06": "tsc && node dist/06.js",
+    "07": "tsc && node dist/07.js",
+    "08": "tsc && node dist/08.js",
+    "09": "tsc && node dist/09.js",
+    "10": "tsc && node dist/10.js",
+    "11": "tsc && node dist/11.js",
+    "12": "tsc && node dist/12.js",
+    "13": "tsc && node dist/13.js",
+    "14": "tsc && node dist/14.js",
+    "15": "tsc && node dist/15.js",
+    "16": "tsc && node dist/16.js",
+    "17": "tsc && node dist/17.js",
+    "18": "tsc && node dist/18.js",
+    "19": "tsc && node dist/19.js",
+    "20": "tsc && node dist/20.js",
+    "21": "tsc && node dist/21.js",
+    "22": "tsc && node dist/22.js",
+    "23": "tsc && node dist/23.js",
+    "24": "tsc && node dist/24.js",
+    "25": "tsc && node dist/25.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmatis2/aoc2021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmatis2/aoc2021/issues"
+  },
+  "homepage": "https://github.com/dmatis2/aoc2021#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.2"
+  }
+}

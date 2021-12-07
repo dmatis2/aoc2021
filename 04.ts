@@ -1,17 +1,22 @@
-const { getInput } = require('./utils')
+import { getInput } from './utils';
 
-const parseInput = async () => {
-    const data = (await getInput()).split('\n');
+type Nums = number[];
+type Bingo = number[][];
+type Bingos = number[][][];
+type ParsedInput = [Nums, Bingos];
+
+const parseInput = async () : Promise<ParsedInput> => {
+    const data: string[] = (await getInput()).split('\n');
     const nums = data[0].split(',').map(x => parseInt(x));
     const bingos = getBingos(data);
     return [nums, bingos];
 }
 
-const getBingos = data => {
+const getBingos = (data: string[]): Bingos => {
     data = data.slice(1);
-    let bingos = [];
+    let bingos: Bingos = [];
     for(let i=0;i<data.length;i+=6) {
-        let board = [];
+        let board: number[][] = [];
         for(let j=i+1; j<i+6; j++) {
             board = [...board, (data[j].trim().replace(/[ ]+/g, ',').split(',').map(x => parseInt(x)))];
         }
@@ -20,8 +25,8 @@ const getBingos = data => {
     return bingos;
 }
 
-const hasWinningRow = (nums, bingo) => {
-    const predicate = (x) => nums.includes(x);
+const hasWinningRow = (nums: Nums, bingo: Bingo) => {
+    const predicate = (x: number) => nums.includes(x);
     if(bingo.some(row => row.every(predicate))) {
         const win = bingo.filter(row => row.every(predicate));
         return win;
@@ -29,16 +34,16 @@ const hasWinningRow = (nums, bingo) => {
     return null;
 }
 
-const hasWinningCol = (nums, bingo) => {
+const hasWinningCol = (nums: Nums, bingo: Bingo) => {
     let bingoT = bingo.map((col, i) => bingo.map(row => row[i]));
     return hasWinningRow(nums, bingoT);
 }
 
-const isWinner = (nums, bingo) => {
+const isWinner = (nums: Nums, bingo: Bingo) => {
     return hasWinningRow(nums, bingo) || hasWinningCol(nums, bingo);
 }
 
-const play = (nums, bingos) => {
+const play = (nums: Nums, bingos: Bingos) => {
     let winIdx = 0;
     for(let i = 0; i < nums.length; i++) {
         if(bingos.some(bingo => isWinner(nums.slice(0, i), bingo))) {
@@ -54,7 +59,7 @@ const play = (nums, bingos) => {
     return null;
 }
 
-const playAll = (nums, bingos) => {
+const playAll = (nums: Nums, bingos: Bingos) => {
     let winIdx = 0;
     for(let i = nums.length - 1; i >= 0; i--) {
         const notWinning = bingos.filter((bingo, idx) => {
@@ -72,13 +77,13 @@ const playAll = (nums, bingos) => {
     return null;
 }
 
-const first = async () =>  {
+const first = async () : Promise<void> => {
     const [nums, bingos] = await parseInput();
     const winning = play(nums, bingos);
     console.log(winning);
 }
 
-const second = async () => {
+const second = async () : Promise<void> => {
     const [nums, bingos] = await parseInput();
     const winning = playAll(nums, bingos);
     console.log(winning);

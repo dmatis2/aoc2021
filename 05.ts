@@ -1,13 +1,31 @@
-const { getInput } = require('./utils')
+import { getInput } from './utils';
+
+type RegexMatch = RegExpMatchArray | null;
+
+interface Point {
+    x: number;
+    y: number;
+    used: number;
+}
+
+interface Line {
+    x1: number;
+    x2: number;
+    y1: number;
+    y2: number;
+    overlapping: any[];
+    diagonal: boolean;
+    points: any[]; 
+}
 
 class Point {
-    constructor(x, y) {
-        this.x = parseInt(x);
-        this.y = parseInt(y);
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
         this.used = 1;
     }
 
-    isSame(point) {
+    isSame(point: Point) {
         return this.x === point.x && this.y === point.y;
     }
 
@@ -17,12 +35,12 @@ class Point {
 }
 
 class Line {
-    constructor(line, allowDiagonal) {
-        let {groups: {x1, y1, x2, y2}} = line.match(/(?<x1>\d+),(?<y1>\d+) -> (?<x2>\d+),(?<y2>\d+)/)
-        this.x1 = parseInt(x1);
-        this.y1 = parseInt(y1);
-        this.x2 = parseInt(x2);
-        this.y2 = parseInt(y2);
+    constructor(line: string, allowDiagonal: boolean) {
+        let match : RegexMatch = line.match(/(?<x1>\d+),(?<y1>\d+) -> (?<x2>\d+),(?<y2>\d+)/)
+        this.x1 = parseInt(match?.groups ? match.groups.x1 : '0');
+        this.y1 = parseInt(match?.groups ? match.groups.y1 : '0');
+        this.x2 = parseInt(match?.groups ? match.groups.x2 : '0');
+        this.y2 = parseInt(match?.groups ? match.groups.y2 : '0');
         this.overlapping = [];
         this.diagonal = false;
         this.points = [];
@@ -53,10 +71,6 @@ class Line {
     isDiagonal() {
         return this.diagonal;
     }
-
-    setOverlapping(items) {
-        this.overlapping = items;
-    }
 }
 
 const parseInput = async (allowDiagonal = true) => {
@@ -66,7 +80,7 @@ const parseInput = async (allowDiagonal = true) => {
 }
 
 const first = async () =>  {
-    const map = new Map();
+    const map: Map<string, number> = new Map();
     const lines = await parseInput(false);
     lines.map(line => {
         line.points.forEach(point => {
@@ -75,7 +89,7 @@ const first = async () =>  {
             if(!map.has(str)) {
                 map.set(str, 1);
             } else {
-                map.set(str, map.get(str) + 1);
+                map.set(str, (map.get(str) ?? 0) + 1);
             }
         })
     });

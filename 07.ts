@@ -1,15 +1,15 @@
-const { getInput, getExample } = require('./utils')
+import { getInput, getExample } from './utils';
 
-const parseInput = async () => {
+const parseInput = async () : Promise<number[]> => {
     const data = (await getInput()).split(',').map(x => parseInt(x));
     return data;
 }
 
-const getCost = (arr, to) => {
+const getCost = (arr: number[], to: number) => {
     return arr.reduce((acc, val) => acc + Math.abs(val - to), 0);
 }
 
-const getCostWithATwist = (arr, to) => {
+const getCostWithATwist = (arr: number[], to: number) => {
     return arr.reduce((acc, val) => {
         const distance = Math.abs(val - to)
         return acc + (distance * (distance + 1) / 2);

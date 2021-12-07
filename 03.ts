@@ -1,6 +1,6 @@
-const { getInput } = require('./utils')
+import { getInput } from './utils'
 
-const getCounts = data => {
+const getCounts = (data: string[]) : number[] => {
     let arr = [...Array(data[0].length)].fill(0);
     return data.reduce((acc, x) => {
         for(let i = 0; i < x.length; i++) {
@@ -10,10 +10,10 @@ const getCounts = data => {
     }, arr);
 }
 
-const oxygenGeneratorComparator = tmp => x => x >= tmp.length / 2 ? '1' : '0';
-const co2GeneratorComparator = tmp => x => x >= tmp.length / 2 ? '0' : '1';
+const oxygenGeneratorComparator = (tmp: string[]) => (x: number) => x >= tmp.length / 2 ? '1' : '0';
+const co2GeneratorComparator = (tmp: string[]) => (x: number) => x >= tmp.length / 2 ? '0' : '1';
 
-const getRating = (orig, comparator) => {
+const getRating = (orig: string[], comparator: (a: string[]) => (x: number) => string): number => {
     let tmp = [...orig];
     let first_bit = 0;
     do {
@@ -26,14 +26,15 @@ const getRating = (orig, comparator) => {
         tmp = [...orig];
         first_bit++;
     } while(tmp.length !== 1);
+    return 1;
 }
 
 const first = async () =>  {
     const data = (await getInput()).split('\n');
     let reduced = getCounts(data);
-    reduced = reduced.map(oxygenGeneratorComparator(data));
-    let inverted = parseInt(reduced.map(x => x === '0' ? '1' : '0').join(''), 2);
-    let bin = parseInt(reduced.join(''), 2);
+    let reducedS = reduced.map(oxygenGeneratorComparator(data));
+    let inverted = parseInt(reducedS.map(x => x === '0' ? '1' : '0').join(''), 2);
+    let bin = parseInt(reducedS.join(''), 2);
     console.log(bin * inverted);
 }
 

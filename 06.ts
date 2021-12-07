@@ -1,11 +1,11 @@
-const { getInput, getExample } = require('./utils')
+import { getInput, getExample } from './utils';
 
 const parseInput = async () => {
     const data = (await getInput()).split(',').map(x => parseInt(x));
     return data;
 }
 
-const getNumberAfterNDays = async (N) => {
+const getNumberAfterNDays = async (N: number) => {
     let timers = await parseInput();
     let map = new Map();
     timers.forEach(timer => {
