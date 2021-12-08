@@ -21,8 +21,8 @@ const getDirections = (x: string) : number[] => {
 const getResultForSecond = (arr: string[]) : number => {
     let [x, y, aim] = [0, 0, 0];
     for(let i = 0; i < arr.length; i++) {
-        let [dir, count] = arr[i].split(' ');
-        let intCount = parseInt(count);
+        const [dir, count] = arr[i].split(' ');
+        const intCount = parseInt(count);
         if(dir === 'down') aim += intCount;
         if(dir === 'up') aim -= intCount;
         if(dir === 'forward') {

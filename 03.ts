@@ -1,7 +1,7 @@
 import { getInput } from './utils'
 
 const getCounts = (data: string[]) : number[] => {
-    let arr = [...Array(data[0].length)].fill(0);
+    const arr = [...Array(data[0].length)].fill(0);
     return data.reduce((acc, x) => {
         for(let i = 0; i < x.length; i++) {
             acc[i] += parseInt(x.split('')[i]);
@@ -19,7 +19,7 @@ const getRating = (orig: string[], comparator: (a: string[]) => (x: number) => s
     do {
         let position = first_bit;
         for(;position < tmp[0].length; position++) {
-            let oxygenReduced = getCounts(tmp).map(comparator(tmp));
+            const oxygenReduced = getCounts(tmp).map(comparator(tmp));
             tmp = tmp.filter(x => x[position] === oxygenReduced[position]);
             if(tmp.length === 1) return parseInt(tmp[0], 2);
         }
@@ -31,10 +31,10 @@ const getRating = (orig: string[], comparator: (a: string[]) => (x: number) => s
 
 const first = async () =>  {
     const data = (await getInput()).split('\n');
-    let reduced = getCounts(data);
-    let reducedS = reduced.map(oxygenGeneratorComparator(data));
-    let inverted = parseInt(reducedS.map(x => x === '0' ? '1' : '0').join(''), 2);
-    let bin = parseInt(reducedS.join(''), 2);
+    const reduced = getCounts(data);
+    const reducedS = reduced.map(oxygenGeneratorComparator(data));
+    const inverted = parseInt(reducedS.map(x => x === '0' ? '1' : '0').join(''), 2);
+    const bin = parseInt(reducedS.join(''), 2);
     console.log(bin * inverted);
 }
 

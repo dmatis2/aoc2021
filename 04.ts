@@ -35,7 +35,7 @@ const hasWinningRow = (nums: Nums, bingo: Bingo) => {
 }
 
 const hasWinningCol = (nums: Nums, bingo: Bingo) => {
-    let bingoT = bingo.map((col, i) => bingo.map(row => row[i]));
+    const bingoT = bingo.map((col, i) => bingo.map(row => row[i]));
     return hasWinningRow(nums, bingoT);
 }
 
@@ -51,8 +51,8 @@ const play = (nums: Nums, bingos: Bingos) => {
                 if(bingo) winIdx = idx;
                 return bingo;
             });
-            let winningNum = nums[i-1];
-            let sum = bingos[winIdx].flat().filter(x => !nums.slice(0, i).includes(x)).reduce((acc, x) => acc + x, 0);
+            const winningNum = nums[i-1];
+            const sum = bingos[winIdx].flat().filter(x => !nums.slice(0, i).includes(x)).reduce((acc, x) => acc + x, 0);
             return winningNum * sum;
         }
     }
@@ -69,8 +69,8 @@ const playAll = (nums: Nums, bingos: Bingos) => {
             return !isWinner(nums.slice(0, i+1), bingo);
         });
         if(notWinning.length === 1) {
-            let winningNum = nums[i+1];
-            let sum = bingos[winIdx].flat().filter(x => !nums.slice(0, i+2).includes(x)).reduce((acc, x) => acc + x, 0);
+            const winningNum = nums[i+1];
+            const sum = bingos[winIdx].flat().filter(x => !nums.slice(0, i+2).includes(x)).reduce((acc, x) => acc + x, 0);
             return winningNum * sum;
         }
     }

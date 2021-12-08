@@ -21,7 +21,7 @@ const first = async () =>  {
     const [min, max] = [Math.min(...data), Math.max(...data)];
     let lowestCost = Number.MAX_SAFE_INTEGER;
     for(let low=min; low <= max; low++) {
-        let cost = getCost(data, low);
+        const cost = getCost(data, low);
         if(cost < lowestCost) lowestCost = cost;
     }
     console.log(lowestCost);
@@ -32,7 +32,7 @@ const second = async () => {
     const [min, max] = [Math.min(...data), Math.max(...data)];
     let lowestCost = Number.MAX_SAFE_INTEGER;
     for(let low=min; low <= max; low++) {
-        let cost = getCostWithATwist(data, low);
+        const cost = getCostWithATwist(data, low);
         if(cost < lowestCost) lowestCost = cost;
     }
     console.log(lowestCost);

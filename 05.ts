@@ -36,7 +36,7 @@ class Point {
 
 class Line {
     constructor(line: string, allowDiagonal: boolean) {
-        let match : RegexMatch = line.match(/(?<x1>\d+),(?<y1>\d+) -> (?<x2>\d+),(?<y2>\d+)/)
+        const match : RegexMatch = line.match(/(?<x1>\d+),(?<y1>\d+) -> (?<x2>\d+),(?<y2>\d+)/)
         this.x1 = parseInt(match?.groups ? match.groups.x1 : '0');
         this.y1 = parseInt(match?.groups ? match.groups.y1 : '0');
         this.x2 = parseInt(match?.groups ? match.groups.x2 : '0');

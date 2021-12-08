@@ -41,7 +41,7 @@ const first = async () =>  {
 }
 
 const second = async () => {
-    let numbers = [...Array(10).fill("")];
+    const numbers = [...Array(10).fill("")];
     const testData = await parseInput();
     const data = await parseInputFirstPart();
     let result = 0;

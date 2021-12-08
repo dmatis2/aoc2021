@@ -6,7 +6,7 @@ const parseInput = async () => {
 }
 
 const getNumberAfterNDays = async (N: number) => {
-    let timers = await parseInput();
+    const timers = await parseInput();
     let map = new Map();
     timers.forEach(timer => {
         if (map.has(timer)) {
@@ -16,7 +16,7 @@ const getNumberAfterNDays = async (N: number) => {
         map.set(timer, 1);
     });
     for (let day = 1; day <= N; day++) {
-        let tmpMap = new Map();
+        const tmpMap = new Map();
         for (let i = 0; i <= 8; i++)
             tmpMap.set(i, 0);
 
