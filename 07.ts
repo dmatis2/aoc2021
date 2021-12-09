@@ -1,4 +1,4 @@
-import { getInput, getExample } from './utils';
+import { getInput } from './utils';
 
 const parseInput = async () : Promise<number[]> => {
     const data = (await getInput()).split(',').map(x => parseInt(x));
