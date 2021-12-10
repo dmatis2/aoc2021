@@ -36,3 +36,7 @@ Author: *Dominik Matis*
 ## Day 9
 - go through each number in array and count the number of values that are lowest
 - use `BFS` algo to go through lowest values and find higher values except `9` (using `queue` and marking visited values), sort sums, return product of 3 largest numbers
+
+## Day 10
+- use stack to store opening brackets and pop stack when correct closing bracket shows
+- when line is not corrupted and stack is not empty, pop stack and calculate scores, sort it and print the middle one
