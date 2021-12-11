@@ -40,3 +40,7 @@ Author: *Dominik Matis*
 ## Day 10
 - use stack to store opening brackets and pop stack when correct closing bracket shows
 - when line is not corrupted and stack is not empty, pop stack and calculate scores, sort it and print the middle one
+
+## Day 11
+- use recursive strategy to flash all needed
+- infinite loop and stop on correct day
