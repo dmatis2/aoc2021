@@ -44,3 +44,7 @@ Author: *Dominik Matis*
 ## Day 11
 - use recursive strategy to flash all needed
 - infinite loop and stop on correct day
+
+## Day 12
+- use adjacency matrix in the form of `Map` and interative version of BFS for graph traversal with storing current state and visited in object
+- add property to state to keep track of number of visits (simple boolean) - **takes more than 2 minutes to solve**
