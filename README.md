@@ -48,3 +48,7 @@ Author: *Dominik Matis*
 ## Day 12
 - use adjacency matrix in the form of `Map` and interative version of BFS for graph traversal with storing current state and visited in object
 - add property to state to keep track of number of visits (simple boolean) - **takes more than 2 minutes to solve**
+
+## Day 13
+- keep track of all points, calculate new position by subtracting double the distance between the point and the folding point, remove duplicates using `Set`
+- reuse `fold` function for all instructions, print all remaining points into the grid and revert axes to get the code
