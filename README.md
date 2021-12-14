@@ -52,3 +52,7 @@ Author: *Dominik Matis*
 ## Day 13
 - keep track of all points, calculate new position by subtracting double the distance between the point and the folding point, remove duplicates using `Set`
 - reuse `fold` function for all instructions, print all remaining points into the grid and revert axes to get the code
+
+## Day 14
+- direct insertion into the string, use `Map` to count letter occurences
+- use `Map` to track pairs, get letters count, divide min and max by 2 and floor down
