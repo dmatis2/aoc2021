@@ -56,3 +56,8 @@ Author: *Dominik Matis*
 ## Day 14
 - direct insertion into the string, use `Map` to count letter occurences
 - use `Map` to track pairs, get letters count, divide min and max by 2 and floor down
+
+## Day 15
+- **SOLVING IN PYTHON**
+- using Dijkstra algorithm with `queue.PriorityQueue`
+- use modulo and integer division to get tile position
