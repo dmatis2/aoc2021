@@ -61,3 +61,7 @@ Author: *Dominik Matis*
 - **SOLVING IN PYTHON**
 - using Dijkstra algorithm with `queue.PriorityQueue`
 - use modulo and integer division to get tile position
+
+## Day 16
+- keep track of current position in input, parse hex to binary or decimal as needed
+- implement instructions
