@@ -65,3 +65,7 @@ Author: *Dominik Matis*
 ## Day 16
 - keep track of current position in input, parse hex to binary or decimal as needed
 - implement instructions
+
+## Day 17
+- use bruteforce to get max height
+- count heights other than -1 (invalid shot)
