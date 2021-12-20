@@ -70,6 +70,10 @@ Author: *Dominik Matis*
 - use bruteforce to get max height
 - count heights other than -1 (invalid shot)
 
+## Day 18
+- DFS for exploding then DFS for splitting
+- bruteforce
+
 ## Day 20
 - use `Set` to store light up cells, margin the 'infinite' board
 - call 50 times
