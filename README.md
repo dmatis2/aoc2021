@@ -77,3 +77,7 @@ Author: *Dominik Matis*
 ## Day 20
 - use `Set` to store light up cells, margin the 'infinite' board
 - call 50 times
+
+## Day 21
+- simple loop
+- DP with recursion **still very slow**
