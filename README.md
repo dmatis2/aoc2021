@@ -81,3 +81,7 @@ Author: *Dominik Matis*
 ## Day 21
 - simple loop
 - DP with recursion **still very slow**
+
+## Day 24
+- figure out algo by hand, watch out for valid w on type 2, do bruteforce from 9s
+- repeat part 1 but do bruteforce starting from 1s
