@@ -85,3 +85,6 @@ Author: *Dominik Matis*
 ## Day 24
 - figure out algo by hand, watch out for valid w on type 2, do bruteforce from 9s
 - repeat part 1 but do bruteforce starting from 1s
+
+## Day 25
+- use hashmap to store locations, simultaneously update locations
